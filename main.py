@@ -94,10 +94,12 @@ async def on_ready():
 
 app = Flask(name)
 @app.route('/')
-def home(): return "ok"
+def home():
+    return "ok"
+
+import threading
 threading.Thread(target=lambda: app.run(host='0.0.0.0', port=10000), daemon=True).start()
 
 bot.run(os.getenv("DISCORD_TOKEN"))
-
 
 
