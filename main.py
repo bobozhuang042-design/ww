@@ -86,10 +86,18 @@ async def clear(interaction: discord.Interaction):
 @bot.event
 async def on_ready():
     print(f"✅ 已上线 {bot.user}")
+    try:
+        synced = await bot.tree.sync()
+        print(f"同步了 {len(synced)} 个 / 指令")
+    except Exception as e:
+        print(f"同步失败: {e}")
 
-app = Flask(__name__)
+app = Flask(name)
 @app.route('/')
 def home(): return "ok"
 threading.Thread(target=lambda: app.run(host='0.0.0.0', port=10000), daemon=True).start()
+
+bot.run(os.getenv("DISCORD_TOKEN"))
+
 
 bot.run(os.getenv("DISCORD_TOKEN"))
