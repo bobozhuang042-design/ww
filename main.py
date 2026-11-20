@@ -92,7 +92,7 @@ async def on_ready():
     except Exception as e:
         print(f"同步失败: {e}")
 
-app = Flask(name)
+app = Flask(__name__)
 @app.route('/')
 def home():
     return "ok"
