@@ -100,4 +100,4 @@ threading.Thread(target=lambda: app.run(host='0.0.0.0', port=10000), daemon=True
 bot.run(os.getenv("DISCORD_TOKEN"))
 
 
-bot.run(os.getenv("DISCORD_TOKEN"))
+
